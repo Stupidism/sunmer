@@ -1,0 +1,60 @@
+{
+  "name": "steps-proxy",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "steps-proxy/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/steps-proxy",
+        "main": "steps-proxy/src/main.ts",
+        "tsConfig": "steps-proxy/tsconfig.app.json",
+        "assets": ["steps-proxy/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "steps-proxy/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "steps-proxy:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "steps-proxy:build:development"
+        },
+        "production": {
+          "buildTarget": "steps-proxy:build:production",
+          "env": {
+            "PORT": 31271
+          }
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["steps-proxy/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "steps-proxy/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
