@@ -9,8 +9,7 @@ const proxy = createProxyServer({
 });
 
 // The target website you want to redirect traffic to
-const targetWebsite =
-  process.env.TARGET_WEBSITE ?? 'https://www.baidu.com/';
+const targetWebsite = process.env.TARGET_WEBSITE ?? 'https://www.baidu.com/';
 
 // Create a standard Node.js HTTP server that will pass all requests to the proxy server
 const server = http.createServer((req, res) => {
