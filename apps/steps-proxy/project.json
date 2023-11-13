@@ -38,6 +38,13 @@
         }
       }
     },
+    "start-with-pm2": {
+      "executor": "@nx/node:run-commands",
+      "options": {
+        "commands": ["pm2 start dist/apps/steps-proxy/main.js --name steps-proxy --watch"],
+        "cwd": "apps/steps-proxy"
+      }
+    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
