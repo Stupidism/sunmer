@@ -28,5 +28,5 @@ const port = process.env.PORT || 3333;
 
 // Start listening for incoming requests
 server.listen(port, () => {
-  console.log(`Proxy server is running on port ${port}`);
+  console.log(`Proxy server is running on port ${port}, targetWebsite: ${targetWebsite}`);
 });
