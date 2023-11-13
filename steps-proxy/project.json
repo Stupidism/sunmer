@@ -34,10 +34,7 @@
           "buildTarget": "steps-proxy:build:development"
         },
         "production": {
-          "buildTarget": "steps-proxy:build:production",
-          "env": {
-            "PORT": 31271
-          }
+          "buildTarget": "steps-proxy:build:production"
         }
       }
     },
