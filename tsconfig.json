@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sunmer/ui": ["libs/ui/src/index.ts"],
+      "@sunmer/ui/*": ["libs/ui/src/*"]
+    }
+  }
+}
