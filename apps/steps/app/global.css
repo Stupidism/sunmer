@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html {
   -webkit-text-size-adjust: 100%;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -405,5 +408,19 @@ summary svg {
   }
   #middle-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  body {
+    width: 794px;
+    height: 1123px;
+    /* Add more print-specific styles here */
+  }
+}
+
+@media print {
+  .no-print {
+    display: none;
   }
 }
