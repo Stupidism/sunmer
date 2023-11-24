@@ -3,6 +3,8 @@ import { buildConfig } from 'payload/config';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
+console.log('process.env.POSTGRES_URL: ', process.env.POSTGRES_URL);
+
 export default buildConfig({
   collections: [
     // Your collections here
@@ -17,7 +19,9 @@ export default buildConfig({
     // Postgres-specific arguments go here.
     // `pool` is required.
     pool: {
-      connectionString: process.env.POSTGRES_URL + '?sslmode=require',
+      connectionString:
+        process.env.POSTGRES_URL ||
+        '"postgres://postgres:@127.0.0.1:5432/steps-dev-local"',
     },
   }),
   editor: lexicalEditor({}),
