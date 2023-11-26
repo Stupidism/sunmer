@@ -7,6 +7,9 @@ const { withPayload } = require("@payloadcms/next-payload");
 
 module.exports = async (phase, { defaultConfig }) => {
   const nxConfig = await withNx({
+    experimental: {
+      serverComponentsExternalPackages: ['payload', 'pino'],
+    },
     nx: {
       // Set this to true if you would like to use SVGR
       // See: https://github.com/gregberge/svgr
