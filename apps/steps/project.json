@@ -29,12 +29,7 @@
             },
             {
               "input": "apps/steps",
-              "glob": ".env",
-              "output": "./.."
-            },
-            {
-              "input": "apps/steps",
-              "glob": ".env.local",
+              "glob": ".env*",
               "output": "./.."
             }
           ]
