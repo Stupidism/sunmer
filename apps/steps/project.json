@@ -15,7 +15,30 @@
         "development": {
           "outputPath": "apps/steps"
         },
-        "production": {}
+        "production": {
+          "assets": [
+            {
+              "input": "apps/steps/payload",
+              "glob": "**/*",
+              "output": "./../payload"
+            },
+            {
+              "input": "apps/steps/app/css",
+              "glob": "**/*",
+              "output": "./../css"
+            },
+            {
+              "input": "apps/steps",
+              "glob": ".env",
+              "output": "./.."
+            },
+            {
+              "input": "apps/steps",
+              "glob": ".env.local",
+              "output": "./.."
+            }
+          ]
+        }
       }
     },
     "serve": {
