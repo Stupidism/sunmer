@@ -19,9 +19,9 @@ export default buildConfig({
     // Postgres-specific arguments go here.
     // `pool` is required.
     pool: {
-      connectionString:
-        process.env.POSTGRES_URL ||
-        '"postgres://postgres:@127.0.0.1:5432/steps-dev-local"',
+      connectionString: process.env.POSTGRES_URL
+        ? process.env.POSTGRES_URL + '?sslmode=require'
+        : 'postgres://postgres:@127.0.0.1:5432/steps-dev-local',
     },
   }),
   editor: lexicalEditor({}),
