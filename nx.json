@@ -15,22 +15,12 @@
         "{workspaceRoot}/eslint.config.js"
       ]
     },
-    "e2e": {
-      "cache": true,
-      "inputs": ["default", "^production"]
-    },
+    "e2e": { "cache": true, "inputs": ["default", "^production"] },
     "@nx/jest:jest": {
       "cache": true,
       "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
-      "options": {
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
+      "options": { "passWithNoTests": true },
+      "configurations": { "ci": { "ci": true, "codeCoverage": true } }
     }
   },
   "namedInputs": {
@@ -48,20 +38,9 @@
     "sharedGlobals": []
   },
   "generators": {
-    "@nx/react": {
-      "application": {
-        "babel": true
-      },
-      "library": {}
-    },
-    "@nx/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    },
-    "@nx/workspace:move": {
-      "projectNameAndRootFormat": "as-provided"
-    }
-  }
+    "@nx/react": { "application": { "babel": true }, "library": {} },
+    "@nx/next": { "application": { "style": "css", "linter": "eslint" } },
+    "@nx/workspace:move": { "projectNameAndRootFormat": "as-provided" }
+  },
+  "nxCloudAccessToken": "ODE0NDRiNmItN2QzYi00YTM4LWFmZjYtNGUzMmE4MWMzNzE4fHJlYWQtd3JpdGU="
 }
