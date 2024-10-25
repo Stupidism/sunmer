@@ -10,6 +10,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
+        "output": "standalone",
         "outputPath": "dist/apps/steps"
       },
       "configurations": {

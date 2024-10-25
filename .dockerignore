@@ -1,0 +1,13 @@
+fly.toml
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+dist
+apps/steps/.next
+.nx
+.github
+.vscode
