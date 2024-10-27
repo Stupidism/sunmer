@@ -27,7 +27,7 @@
     "../../dist/apps/steps/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "next.config.mjs"
+    "next.config.js"
   ],
   "exclude": [
     "node_modules",

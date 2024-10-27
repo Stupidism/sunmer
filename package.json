@@ -6,6 +6,7 @@
     "steps-proxy": "node dist/apps/steps-proxy/main.js"
   },
   "private": true,
+  "type": "module",
   "dependencies": {
     "@nx/next": "20.0.5",
     "@payloadcms/db-postgres": "3.0.0-beta.119",
