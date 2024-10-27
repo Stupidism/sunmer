@@ -39,8 +39,10 @@ RUN adduser --system --uid 1001 nextjs
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/steps/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/steps/.next/standalone/apps/steps/server.js apps/steps/server.cjs
 COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/steps/public dist/apps/steps/public
 COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/steps/.next/static dist/apps/steps/.next/static
+
 
 USER nextjs
 
@@ -52,4 +54,4 @@ ENV PORT=3000
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "apps/steps/server.js"]
+CMD ["node", "apps/steps/server.cjs"]
