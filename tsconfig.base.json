@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@sunmer/ui": ["libs/ui/src/index.ts"],
-      "@sunmer/ui/*": ["libs/ui/src/*"]
+      "@sunmer/ui/*": ["libs/ui/src/*"],
+      "@payload-config": ["apps/steps/payload.config.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
