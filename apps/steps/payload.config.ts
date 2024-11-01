@@ -2,9 +2,13 @@ import sharp from 'sharp';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { postgresAdapter } from '@payloadcms/db-postgres';
 import { buildConfig } from 'payload';
-import path from 'path';
+import path, { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 import { collections } from './collections';
+import { fileURLToPath } from 'url';
 
 export default buildConfig({
   // If you'd like to use Rich Text, pass your editor here
@@ -12,11 +16,6 @@ export default buildConfig({
 
   // Define and configure your collections in this array
   collections,
-  localization: {
-    locales: ['zh', 'en'], // required
-    defaultLocale: 'zh', // required
-    fallback: true,
-  },
 
   // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || '',
@@ -31,11 +30,17 @@ export default buildConfig({
     },
   }),
   typescript: {
-    outputFile: path.resolve(__dirname, '../payload-types.ts'),
+    outputFile: path.resolve(__dirname, './generated-payload-types.ts'),
   },
   // If you want to resize images, crop, set focal point, etc.
   // make sure to install it and pass it to the config.
   // This is optional - if you don't need to do these things,
   // you don't need it!
   sharp,
+
+  admin: {
+    importMap: {
+      baseDir: 'apps/steps',
+    },
+  },
 });

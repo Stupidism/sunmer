@@ -17,7 +17,9 @@
     "paths": {
       "@sunmer/ui": ["libs/ui/src/index.ts"],
       "@sunmer/ui/*": ["libs/ui/src/*"],
-      "@payload-config": ["apps/steps/payload.config.ts"]
+      "@payload-config": ["apps/steps/payload.config.ts"],
+      "@steps/*": ["apps/steps/*"],
+      "@collections/*": ["apps/steps/collections/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

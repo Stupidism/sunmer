@@ -8,33 +8,22 @@ export const Students: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
+    components: {
+      views: {
+        list: {
+          actions: [
+            {
+              path: '/collections/students/students-import-button',
+            },
+          ],
+        },
+      },
+    },
   },
   fields: [
     {
       name: 'name',
       type: 'text',
-      required: true,
-    },
-    {
-      name: 'layer',
-      type: 'radio',
-      options: ['A', 'B', 'C', 'D'],
-      required: true,
-    },
-    {
-      name: 'recentBigExamClassRank',
-      type: 'number',
-      required: true,
-    },
-    {
-      name: 'recentBigExamSchoolRank',
-      type: 'number',
-      required: true,
-    },
-    {
-      // 最近一次大考成绩
-      name: 'recentBigExamScore',
-      type: 'number',
       required: true,
     },
     {
@@ -45,16 +34,55 @@ export const Students: CollectionConfig = {
       required: true,
     },
     {
+      name: 'namePlusClassName',
+      type: 'text',
+      required: true,
+      unique: true,
+      admin: {
+        hidden: true,
+      },
+      hooks: {
+        beforeChange: [
+          ({ siblingData }) => {
+            siblingData[
+              'namePlusClassName'
+            ] = `${siblingData?.className}_${siblingData?.name}`;
+          },
+        ],
+      },
+    },
+    {
+      name: 'layer',
+      type: 'radio',
+      options: ['A', 'B', 'C', 'D'],
+      // required: true,
+    },
+    {
+      name: 'recentBigExamClassRank',
+      type: 'number',
+      // required: true,
+    },
+    {
+      name: 'recentBigExamSchoolRank',
+      type: 'number',
+      // required: true,
+    },
+    {
+      // 最近一次大考成绩
+      name: 'recentBigExamScore',
+      type: 'number',
+      // required: true,
+    },
+    {
       // 年级
       // TODO: 年级需要从年级表中获取
       name: 'gradeName',
       type: 'text',
-      required: true,
+      // required: true,
     },
     {
       // 师傅, 是另一个学生
       name: 'master',
-      required: false,
       type: 'relationship',
       // TODO: fix type
       // https://github.com/payloadcms/payload/discussions/8880

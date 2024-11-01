@@ -13,7 +13,8 @@ const __dirname = dirname(__filename);
 const nextConfig = {
   output: 'standalone',
   experimental: {
-    reactCompiler: false
+    reactCompiler: false,
+    optimizePackageImports: ['lodash-es'],
   },
   // this includes files from the monorepo base two directories up
   outputFileTracingRoot: path.join(__dirname, '../../'),
